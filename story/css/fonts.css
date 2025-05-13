@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Rubic';
+    src: url('../fonts/RubikGlitch-Regular.ttf');
+    font-weight: 400;
+}
+@font-face {
+    font-family: 'DM';
+    src: url('../fonts/DMSerifText-Regular.ttf');
+}
