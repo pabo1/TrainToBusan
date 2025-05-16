@@ -1,5 +1,10 @@
 @import url('fonts.css');
 
+html, body {
+    overflow: hidden; /* Убираем прокрутку */
+    height: 100%; /* Устанавливаем высоту на 100% */
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -11,29 +16,37 @@
 
 .nav1 {
     display: flex;
-    gap: 1050px;
+    justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
     background-color: rgb(91, 91, 91);
 }
 .nav1 img {
-    padding-left: 50px;
+    padding-left: 20px;
+    width: 100px;
 }
 .link-list {
     display: flex;
-    gap: 50px;
+    gap: 20px;
 }
 .link-list a {
     color: white;
-    font-size: 20px;
-    border-bottom: 2px solid #ed8e0000;
+    font-size: 18px;
+    border-bottom: 2px solid transparent;
     transition: 500ms;
     font-weight: 300;
 }
 .link-list a:hover {
     color: lightgray;
     border-bottom: 3px solid lightgray;
-    padding-bottom: 21px;
+    padding-bottom: 5px;
+}
+
+#story-container {
+    width: 700px;
+}
+.scrollable-container {
+    width: 700px;
 }
 
 .main1 {
@@ -45,40 +58,39 @@
     justify-content: center;
     align-items: center;
 }
-
 .main1 div {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 70px;
+    padding: 20px;
     color: lightgray;
     background-color: rgba(52, 52, 52, 0.5);
     border: 2px solid #434343;
     border-radius: 10px;
-    margin: 350px;
+    margin: 20px;
     backdrop-filter: blur(5px);
-    height: 360px;
+    height: auto;
 }
 .main1 .p1 {
-    font-size: 19px;
-    margin-bottom: 20px;
+    font-size: 16px;
+    margin-bottom: 10px;
     font-weight: 500;
 }
 .main1 .p2 {
-    font-size: 19px;
-    margin-bottom: 30px;
+    font-size: 16px;
+    margin-bottom: 20px;
     font-family: Rubic;
 }
 .main1 a {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 15px;
+    gap: 10px;
     color: rgb(124, 124, 124);
-    font-size: 20px;
-    padding: 10px 20px;
+    font-size: 18px;
+    padding: 10px 15px;
     border-radius: 5px;
     border: 2px solid #434343;
     transition: 500ms;
@@ -111,7 +123,7 @@
     align-items: center;
 }
 #story-container {
-    margin: 300px;
+    margin: 20px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -142,7 +154,7 @@
 #choices button {
     background-color: rgba(52, 52, 52, 0.8);
     color: lightgray;
-    font-size: 18px;
+    font-size: 16px;
     padding: 5px 10px;
     margin-right: 5px;
     border: 2px solid #434343;
@@ -163,7 +175,7 @@
     transform: scale(1);
 }
 .chosen-text {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bold;
     color: lightgray;
     text-align: center;
@@ -176,5 +188,92 @@
     }
     to {
         opacity: 1;
+    }
+}
+
+.scrollable-container {
+    max-height: 300px; /* Устанавливаем максимальную высоту */
+    overflow-y: auto; /* Включаем вертикальный скроллинг */
+    padding: 20px; /* Внутренние отступы */
+    background-color: rgba(52, 52, 52, 0.5); /* Полупрозрачный фон */
+    border: 2px solid #434343; /* Рамка */
+    border-radius: 10px; /* Скругленные углы */
+    color: lightgray; /* Цвет текста */
+    scrollbar-width: thin; /* Для Firefox */
+    scrollbar-color: #434343 rgba(0, 0, 0, 0.5); /* Цвет скроллбара для Firefox */
+}
+
+.scrollable-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.scrollable-container::-webkit-scrollbar-thumb {
+    background-color: #434343;
+    border-radius: 10px;
+}
+
+.scrollable-container::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* --- Адаптация для планшетов (ширина экрана до 768px) --- */
+@media (max-width: 768px) {
+    .nav1 {
+        flex-direction: column;
+        justify-content: center; /* Центрируем элементы для планшетов */
+        gap: 10px;
+    }
+    .nav1 img {
+        width: 80px;
+    }
+    .link-list {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .main1 div {
+        padding: 15px;
+        margin: 10px;
+    }
+    .main1 .p1, .main1 .p2 {
+        font-size: 14px;
+    }
+    .main1 a {
+        font-size: 16px;
+        padding: 8px 12px;
+    }
+    #story-container {
+        margin: 10px;
+        height: 300px;
+    }
+}
+
+/* --- Адаптация для телефонов (ширина экрана до 480px) --- */
+@media (max-width: 480px) {
+    .nav1 {
+        flex-direction: column;
+        justify-content: center; /* Центрируем элементы для телефонов */
+        gap: 10px;
+    }
+    .nav1 img {
+        width: 60px;
+    }
+    .link-list {
+        flex-direction: column;
+        gap: 5px;
+    }
+    .main1 div {
+        padding: 10px;
+        margin: 5px;
+    }
+    .main1 .p1, .main1 .p2 {
+        font-size: 12px;
+    }
+    .main1 a {
+        font-size: 14px;
+        padding: 6px 10px;
+    }
+    #story-container {
+        margin: 5px;
+        height: 250px;
     }
 }

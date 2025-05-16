@@ -2,7 +2,6 @@ import telebot
 import button
 
 print("Starting bot...")
-# Загрузка конфигурации
 bot = telebot.TeleBot('7616221037:AAHtMJonLLxohHZvVBKeIvVN6z6L5j-Bv1M')
 reply_markup = button.choice_button()
 
@@ -10,5 +9,4 @@ reply_markup = button.choice_button()
 def start(message):
     bot.send_message(message.chat.id, "Hi, click the button to start your story".format(message.from_user), reply_markup = reply_markup)
 
-# Регистрация хендлеров и запуск
 bot.polling(none_stop=True)
